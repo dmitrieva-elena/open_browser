@@ -24,7 +24,7 @@ def OpenGoogle(driver):
         
     '''
     driver.get("https://www.google.com/")
-    textinput = search = driver.find_element_by_css_selector("[class=\"gLFyf gsfi\"]")
+    textinput = driver.find_element_by_css_selector("[class=\"gLFyf gsfi\"]")
     textinput.send_keys("Айзек Азимов")
     submit_button = driver.find_elements_by_css_selector("[class=\"gNO89b\"]")
     submit_button[-1].click()
@@ -32,6 +32,21 @@ def OpenGoogle(driver):
     driver.quit()
 
 
+def OpenYandex(driver):
+    '''
+        Open https://www.yandex.ru/ in Google Chrome
+        and search info about Isaac Asimov
+        
+    '''
+    driver.get("https://www.yandex.ru/")
+    textinput = driver.find_element_by_id("text")
+    textinput.send_keys("Айзек Азимов")
+    submit_button = driver.find_element_by_css_selector(".search2__button [role=\"button\"]")
+    submit_button.click()
+    time.sleep(5)
+    driver.quit()
+
+
 driver = webdriver.Chrome()
 time.sleep(5)
-OpenGoogle(driver)
+OpenYandex(driver)
